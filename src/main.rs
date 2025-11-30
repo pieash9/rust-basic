@@ -1,25 +1,10 @@
 
 fn main() {
-    println!("{}", fib(10));
+    let name = String::from("Pieash");
+    let length = get_str_length(name);
+    println!("Length of the string is: {}", length);
 }
 
-fn fib(num: u32) -> u32 {
-    let mut first = 0;
-    let mut second = 1;
-
-    if num == 0 {
-        return first;
-    }
-    if num == 1 {
-        return second;
-    }
-
-    for _ in 0..(num - 1) {
-        let temp = second;
-        second = first + second;
-        first = temp;
-    } 
-
-    second
-
+fn get_str_length(str: String) -> usize {
+   return str.chars().count();
 }
