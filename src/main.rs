@@ -1,21 +1,18 @@
-enum  Shape {
-    Rectangle(f64, f64),
-    Circle(f64)
-}
-
 fn main() {
-   let react = Shape::Rectangle(1.0, 2.0);
-   calculate_area(react);
+    let index = find_first_a(String::from("PIeash"));
 
-   let circle = Shape::Circle( 2.0);
-   calculate_area(circle);
+    match index {
+        Some(value) => println!("First 'a' found at index: {}", value),
+        None => println!("No 'a' found"),
+    }
 }
 
-fn calculate_area(shape: Shape) -> f64 {
-   let area =  match shape {
-        Shape::Rectangle(a,b ) => a * b,
-        Shape::Circle(r) => 3.14 * r * r,
-    };
+fn find_first_a(s : String) -> Option<i32> {  // Option type to handle absence of 'a'
+    for (index, char) in s.chars().enumerate() {
+        if char == 'a' {
+            return  Some(index as i32); // Return index wrapped in Some
+        }
+    }
 
-    return area;
+    return  None; // Return None if 'a' is not found
 }
