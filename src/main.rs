@@ -1,18 +1,16 @@
-fn main() {
-    let index = find_first_a(String::from("PIeash"));
+use std::fs::read_to_string;
 
-    match index {
-        Some(value) => println!("First 'a' found at index: {}", value),
-        None => println!("No 'a' found"),
-    }
+fn main(){
+     let result = read_from_file(String::from("a.txt"));
+    println!("{}", result.unwrap());
+   
 }
 
-fn find_first_a(s : String) -> Option<i32> {  // Option type to handle absence of 'a'
-    for (index, char) in s.chars().enumerate() {
-        if char == 'a' {
-            return  Some(index as i32); // Return index wrapped in Some
-        }
-    }
+fn read_from_file(file_path: String) -> Result<String, String> {
+     let result = read_to_string(file_path);
 
-    return  None; // Return None if 'a' is not found
+    match result {
+        Ok(data) => Ok(data),
+        Err(_err) => panic!("Error reading file"),
+    }
 }
