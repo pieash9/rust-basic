@@ -1,8 +1,8 @@
-use chrono::{Local, Utc};
-
 fn main() {
-    let now  = Utc::now();
-    let local_time = Local::now();
-    println!("Current Local time: {}", local_time);
-    println!("Current UTC time: {}", now);
+    // ownership.. only one owner at a time
+    let mut s1 = String::from("Pieash");
+    let s2 = s1;
+    s1 = s2;
+    println!("{}", s1);
 }
+
