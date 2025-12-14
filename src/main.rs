@@ -1,10 +1,12 @@
 fn main() {
-    let mut v1 = vec![1, 2, 3];
-    let  v1_iter = v1.iter_mut();
+    let  v1 = vec![1, 2, 3 , 4, 5];
+    let  v1_iter = v1.iter();
 
-    for val in v1_iter {
-        *val += 1;
+    let v1_iter2 = v1_iter.filter(|x| *x % 2 == 0);
+
+    for i in v1_iter2 {
+        println!("{}", i);
     }
- 
+
     println!("{:?}", v1);
 }
