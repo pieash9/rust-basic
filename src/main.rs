@@ -1,12 +1,8 @@
 fn main() {
     let  v1 = vec![1, 2, 3 , 4, 5];
-    let  v1_iter = v1.iter();
+    let iter = v1.iter().filter(|x| *x % 2 == 1).map(|x| x * 2 );
 
-    let v1_iter2 = v1_iter.filter(|x| *x % 2 == 0);
+    let v2: Vec<i32> = iter.collect();
 
-    for i in v1_iter2 {
-        println!("{}", i);
-    }
-
-    println!("{:?}", v1);
+    println!("{:?}", v2);
 }
