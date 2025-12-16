@@ -1,8 +1,19 @@
-fn main() {
-    let  v1 = vec![1, 2, 3 , 4, 5];
-    let iter = v1.iter().filter(|x| *x % 2 == 1).map(|x| x * 2 );
+fn main (){
+    let word = String::from("Hello World");
+    let word2 = find_first_word(&word);
 
-    let v2: Vec<i32> = iter.collect();
+    println!("{}", word);
+    println!("{}", word2);
+}
 
-    println!("{:?}", v2);
+fn find_first_word(word: &String) -> &str {
+    let mut index = 0;
+    for (_,i) in word.chars().enumerate() {
+        if i == ' ' {
+            break ;
+        }
+        index +=1;
+    }
+
+    return  &word[0..index];
 }
