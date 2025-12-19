@@ -1,29 +1,19 @@
-
-trait Summary {
-    fn summaries(&self) -> String {
-        return  String::from("Hi There!!!");
-    }
-}
-
-struct User {
-    name : String,
-    age: u32,
-}
-
-struct Fix ;
-impl  Summary for Fix {}
-impl Summary for User {}
-impl  Summary for String {}
-
 fn main() {
-    let user = User{
-        name:String::from("Pieash"),
-        age: 27
-    };
-    let f = Fix;
-    notify(f);
+    let ans;
+
+    let str1 = String::from("Hello");
+    let str2 = String::from("World!");
+
+    ans = longest(str1, str2);
+
+    println!("The longest string is: {}", ans);
+
 }
 
-fn notify(u : impl Summary) {
-    println!("{}", u.summaries())
+fn longest(a : String, b: String) -> String {
+    if  a.len() > b.len() {
+        return  a;
+    } else {
+         return  b;
+    }
 }
